@@ -18,30 +18,7 @@ div.footer img{flex-grow: 0;
     height: auto;
     width: auto;
     max-width: 40%;}
-#cmsmodal{
-	width:100%;
-	background:#fff;
-	position:fixed;z-index:999;top:0;bottom:0;left:0;right:0; flex-direction: column; 
-}
-.nav .pop{
-	display:none;
-	width:0;height:0;
-}
-.pop .alink{
-	display:none; 
-}
-a{
-	color:black;
-}
-#cmsmodal img{
-	width:auto;
-}
-#giftDiv{
-	position:"absolute",
-	zIndex:"1000",
-	top:pos+100
-	margin:0 auto;
-}
+
 .welcome{
 	position:relative;
 	width:65%;
@@ -201,32 +178,85 @@ a{
 </div>
 </div>
 </div>
-<article>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
-<div><img id="goldsilver" src="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
+<article id="detail">
+<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
+<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
+<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img dta-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
+<div class="detail"><img id="goldsilver" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
+<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
 </article>
 <div class="footer"><a style="height: 150px;" href="#catelog"><img src="{{media url="wysiwyg/Home/P1_backTop.gif"}}" alt="" /></a></div>
 </div>
-<div id="modalPop" style="display: none;">
-<div id="giftDiv" style="background: #fff; position: fixed; z-index: 999; top: 0; bottom: 0; left: 0; right: 0; display: none; width: 100%; height: 100%; padding-top: 30%;"><img style="margin: 0 auto; display: block; width: auto;" alt="" /></div>
-<div id="cmsmodal" class="displaynone">
-<div class="closebtn"><img style="height: 45px; float: right;" src="{{media url="wysiwyg/Home/P1_closed.png"}}" alt="" /></div>
-<div class="content"></div>
-<div class="controlbtn"><a><img src="{{media url="wysiwyg/Home/P1_BTN.png"}}" alt="" /></a></div>
-</div>
-<div class="overlay" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 998; background: #fff; height: 100%;"></div>
-</div>
-<p><label id="giftaddress" style="display: none;">{{media url="wysiwyg/Home/gift320.gif"}}</label></p>
 <p>
 <script type="text/javascript" xml="space">// <![CDATA[
-// 
-// 
-// 
- 
- 
+
+	var LazyLoad = function(elements){
+			this.elements = elements;
+			this.loadEle =function(ele){
+				var srcURL = ele.getAttribute('data-ori');
+				 elem.src = srcURL;
+				 ele.style.visibility = "visible"
+			}
+		};
+	LazyLoad.prototype.load = function(){
+		var that = this;
+		var _viewportHeight=window.innerHeight,_pageYOffset;
+		function setViewHeight(){
+			_viewportHeight = window.innerHeight
+		}
+		function setPageYOffset(){
+			_pageYOffset = window.pageYOffset
+		}
+		function  checkIfInView(ele){
+			var x = ele.getBoundingClientRect().top;
+			if(x){
+				if(x>0&&x<=_viewportHeight){
+					return true
+				}
+				return false;
+			}else{
+				var top = ele.offsetTop;
+				var parent = ele.offsetParent;
+				while(parent){
+					top += parent.offsetParent||0;
+					parent = parent.offsetParent;
+				}
+				if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
+					return true;
+				}
+				return false
+			}
+		}
+		function checkAvailable(){
+			for(var i =0;i<that.elements.length;i++){
+				var el = that.elements[i];
+				if(checkIfInView(el)){
+					that.loadEle(el);
+					that.elements.splice(i,1)
+				}
+			}
+		}
+
+			var initialized = false;
+			function scrollEventHandler(){
+				if(!initialized){
+					requestAnimationFrame(function update(){
+						checkAvailable()
+						requestAnimationFrame(update)
+				})
+				}
+				initizalized = true;
+			}
+			window.onresize = function(){
+				setViewHeight()
+			}
+			window.onscroll = function(){
+				setPageYOffset()
+				scrollEventHandler()
+			}
+		}
+
+
 requirejs(['jquery'],function($){
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
@@ -249,52 +279,17 @@ requirejs(['jquery'],function($){
 			top:offsetPos
 		})
 		$('.welcome').show();
+	}	
+
+	function imgLoad(target){
+		$imgNode = $(target);
+		var imgAddress = imgNode.attr('data-origin');
+		$imgNode.attr('src',imgAddress);
 	}
 
-	// function showPop(){
-	// 	$("#modalPop").show();
-	// 	$('body').addClass('hasPop');
 
-	// }
-	// function showGift(){
-	// 	var giftshowsrc = $("#giftaddress").html();
-	// 	showPop();
-	// 	$("#giftDiv").show();
-	// 	$("#giftDiv img").attr("src",giftshowsrc);
-	// }
-
-	// function showDetail(linkImg_copy,fadeIn){
-	// 	$("#giftDiv").hide();
-	// 	$("#cmsmodal .content").html(linkImg_copy);
-	// 	var $imglink = $("#cmsmodal .content .pop").find('img');
-	// 	var imglinksrc = $imglink.attr('data-original');
-	// 	$imglink.attr('src',imglinksrc);
-	// 	$(document).on('scroll',function(e){
-	// 		e.preventDefault();
-	// 		e.stopPropagation();
-	// 	})
-	// 	$(document).on('touchmove',function(e){
-	// 		e.preventDefault();
-	// 		e.stopPropagation();
-	// 	})
-
-	// 	var address = $("#cmsmodal .alink").attr("href");
-	// 	$(".controlbtn a").attr('href',address);
-	// 	$("#cmsmodal").removeClass('displaynone');
-	// 	$("#cmsmodal").addClass('displayflex');
-	// 	if(fadeIn){
-	// 		$("#cmsmodal .content").css({
-	// 			animation:"fade-in",
-	// 			animationDuration:"1s"
-	// 		})
-	// 	}else{
-	// 		$("#cmsmodal .content").css({
-	// 			animation:"",
-	// 			animationDuration:""
-	// 		})
-	// 	}
-	// }
 	function initFun(){
+		var screenheight=screen.height;
 		var giftShow = false;
 		var host = location.host; 
 		var img = document.getElementById("goldsilver");
@@ -309,35 +304,14 @@ requirejs(['jquery'],function($){
 
 	}
 
-  $(document).ready(function(){
-  		var giftShow,host,imgWidth;
-  		initFun();
-	
-		// $('.navimg').on('click',function(){
-		// 	var $this = $(this);
-		// 	var linkImg = $this.siblings(".pop");
-		// 	var linkImg_copy = linkImg.clone();
-		// 	if(!giftShow){
-		// 		giftShow = true;
-		// 		showGift();
-		// 		setTimeout(function(){showDetail(linkImg_copy,true)},3000);
-		// 	}else{
-		// 		showPop();
-		// 		showDetail(linkImg_copy,false);
-		// 	}
-
-		// })
-		// $('.closebtn').on('click',function(){
-		// 	$("#modalPop").hide();
-		// 	$("#cmsmodal").addClass('displaynone');
-		// 	$("#cmsmodal").removeClass('displayflex');
-		// 	$('body').removeClass('hasPop');
-		// 	$(document).unbind('touchmove');
-		// 	$(document).unbind('scroll');
-		// })
-
+	  $(document).ready(function(){
+	  		var giftShow,host,imgWidth;
+	  		initFun();
+	  		var elements = Array.prototype.slice.call(document.getElementsByClassName('detail'));
+			var lazyload = new LazyLoad(elements);
+			lazyload.load()
 		})	
-	})
+})
  
  
 // ]]></script>
