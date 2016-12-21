@@ -1,0 +1,348 @@
+<style xml="space"><!--
+.displaynone{
+	display:none;
+}
+.displayflex{
+	display:flex;
+}
+#maincontent{margin:0 auto;padding:0}
+div.nav{display:flex;justify-content:center;margin:0;padding:0;width:100%; margin-bottom:1rem;}
+div.nav div{ border:0; margin-bottom:0;}
+article img{width:100%;} 
+div img{width:100%}
+div.nav .left{
+margin-right:10px;
+}
+div.footer a{display:flex;justify-content:center;width:100%;}
+div.footer img{flex-grow: 0;
+    height: auto;
+    width: auto;
+    max-width: 40%;}
+#cmsmodal{
+	width:100%;
+	background:#fff;
+	position:fixed;z-index:999;top:0;bottom:0;left:0;right:0; flex-direction: column; 
+}
+.nav .pop{
+	display:none;
+	width:0;height:0;
+}
+.pop .alink{
+	display:none; 
+}
+a{
+	color:black;
+}
+#cmsmodal img{
+	width:auto;
+}
+#giftDiv{
+	position:"absolute",
+	zIndex:"1000",
+	top:pos+100
+	margin:0 auto;
+}
+.welcome{
+	position:relative;
+	width:65%;
+	float:right;
+}
+@keyframes fade-in{
+	0% {opacity: 0;}
+    50% {opacity: 0.5;}  
+    100% {opacity: 1;}
+}
+@-webkit-keyframes fade-in{
+	0% {opacity: 0;}
+    50% {opacity: 0.5;}  
+    100% {opacity: 1;}
+}
+@keyframes mysnow1{ 
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	transform: rotate(540deg);
+	} 
+	100%{ 
+	transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+} 
+@-webkit-keyframes mysnow1{ 
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	-webkit-transform: rotate(540deg);
+	} 
+	100%{ 
+	-webkit-transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+} 
+@keyframes mysnow2{
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	transform: rotate(540deg);
+
+	} 
+	100%{ 
+	transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+}
+@-webkit-keyframes mysnow2{
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	-webkit-transform: rotate(540deg);
+	} 
+	100%{ 
+	-webkit-transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+}
+
+.roll1{ 
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow1 4s infinite linear;
+	-webkit-animation: mysnow1 4s infinite linear; 
+} 
+.roll2{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 5s infinite linear;
+	-webkit-animation:mysnow2 5s infinite linear;
+}
+.roll3{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 6s infinite linear;
+	-webkit-animation:mysnow2 6s infinite linear;
+}
+.roll4{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 7s infinite linear;
+	-webkit-animation:mysnow2 7s infinite linear;
+}
+.div{
+	position:absolute;
+
+}
+.hasPop{
+	overflow:hidden;
+	height:100%;
+}
+#snowzone{
+	display:none;
+}
+--></style>
+<div class="home" style="background: transparent; width: 100%; height: 100%;">
+<div id="loadingOverlayer" style="width:100%;"></div>
+<div id="homemain" style="display:none;background: transparent; width: 100%; height: 100%;">
+<div id="snowzone">
+<div class="div roll1" style="left: 5%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll4" style="left: 25%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll2" style="left: 75%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll3" style="left: 90%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<!-- <div class="div roll3" style="left: 65%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll3" style="left: 20%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div> --></div>
+<div class="screen screenone banner">
+<div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
+<div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
+<div style="display: none;"><img id="snow" style="display: none;" src="{{media url="wysiwyg/Home/s1.png"}}" alt="" /></div>
+</div>
+<div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
+<div class="screen screentwo">
+<div id="catelog" class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
+
+</div>
+<div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme2_1.jpg"}}" alt="" /></a></div>
+</div>
+</div>
+<div class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme3_1.jpg"}}" alt="" /></a></div>
+
+</div>
+<div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme4_1.jpg"}}" alt="" /></a></div>
+</div>
+</div>
+<div class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme5_1.jpg"}}" alt="" /></a></div>
+
+</div>
+<div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
+</div>
+</div>
+</div>
+<article>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
+<div><img id="goldsilver" src="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
+</article>
+<div class="footer"><a style="height: 150px;" href="#catelog"><img src="{{media url="wysiwyg/Home/P1_backTop.gif"}}" alt="" /></a></div>
+</div>
+<div id="modalPop" style="display: none;">
+<div id="giftDiv" style="background: #fff; position: fixed; z-index: 999; top: 0; bottom: 0; left: 0; right: 0; display: none; width: 100%; height: 100%; padding-top: 30%;"><img style="margin: 0 auto; display: block; width: auto;" alt="" /></div>
+<div id="cmsmodal" class="displaynone">
+<div class="closebtn"><img style="height: 45px; float: right;" src="{{media url="wysiwyg/Home/P1_closed.png"}}" alt="" /></div>
+<div class="content"></div>
+<div class="controlbtn"><a><img src="{{media url="wysiwyg/Home/P1_BTN.png"}}" alt="" /></a></div>
+</div>
+<div class="overlay" style="position: fixed; top: 0; bottom: 0; left: 0; right: 0; z-index: 998; background: #fff; height: 100%;"></div>
+</div>
+<p><label id="giftaddress" style="display: none;">{{media url="wysiwyg/Home/gift320.gif"}}</label></p>
+<p>
+
+</div>
+<script type="text/javascript" xml="space">// <![CDATA[		
+ 		window.onload = function(){
+ 			var loadingOverlayer = document.getElementById('loadingOverlayer');
+ 			loadingOverlayer.innerHTML = '<img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" />';		
+ 		}()
+ requirejs(['jquery'],function($){
+	function goldSiverClick(img,imgWidth,host){
+		img.addEventListener('click',function(e){
+			var event = e?e:window.event;
+			var x= event.clientX;
+			var goldhtml ='http://'+ host + '/pf/wechat/design/gold.html';
+			var silverhtml ='http://'+ host +'/pf/wechat/design/silver.html';
+			if(x<imgWidth/2){
+				window.location.replace(goldhtml)
+			}else{
+				window.location.replace(silverhtml)
+			}
+		})
+	}
+
+	function showWelcome(){
+		var welcomePos = $('.bannerimg').height();
+		var offsetPos ='-'+ welcomePos/100 *8 +'px';
+		$('.welcome').css({
+			top:offsetPos
+		})
+		$('.welcome').show();
+	}
+
+	function showPop(){
+		$("#modalPop").show();
+		$('body').addClass('hasPop');
+
+	}
+	function showGift(){
+		var giftshowsrc = $("#giftaddress").html();
+		showPop();
+		$("#giftDiv").show();
+		$("#giftDiv img").attr("src",giftshowsrc);
+	}
+
+	function showDetail(linkImg_copy,fadeIn){
+		$("#giftDiv").hide();
+		$("#cmsmodal .content").html(linkImg_copy);
+		var $imglink = $("#cmsmodal .content .pop").find('img');
+		var imglinksrc = $imglink.attr('data-original');
+		$imglink.attr('src',imglinksrc);
+		$(document).on('scroll',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		})
+		$(document).on('touchmove',function(e){
+			e.preventDefault();
+			e.stopPropagation();
+		})
+
+		var address = $("#cmsmodal .alink").attr("href");
+		$(".controlbtn a").attr('href',address);
+		$("#cmsmodal").removeClass('displaynone');
+		$("#cmsmodal").addClass('displayflex');
+		if(fadeIn){
+			$("#cmsmodal .content").css({
+				animation:"fade-in",
+				animationDuration:"1s"
+			})
+		}else{
+			$("#cmsmodal .content").css({
+				animation:"",
+				animationDuration:""
+			})
+		}
+	}
+	function initFun(){
+		var giftShow = false;
+		var host = location.host; 
+		var img = document.getElementById("goldsilver");
+		var imgWidth=img.width;		
+
+		window.addEventListener('resize',function(){
+			 imgWidth = img.width;
+		})		
+		showWelcome()
+		 $("#snowzone").show()
+		goldSiverClick(img,imgWidth,host)
+
+	}
+
+  $(document).ready(function(){
+  		$("#loadingOverlayer").hide();
+  		$("#homemain").show();
+  		var giftShow,host,imgWidth;
+  		initFun();
+	
+		$('.navimg').on('click',function(){
+			var $this = $(this);
+			var linkImg = $this.siblings(".pop");
+			var linkImg_copy = linkImg.clone();
+			if(!giftShow){
+				giftShow = true;
+				showGift();
+				setTimeout(function(){showDetail(linkImg_copy,true)},3000);
+			}else{
+				showPop();
+				showDetail(linkImg_copy,false);
+			}
+
+		})
+		$('.closebtn').on('click',function(){
+			$("#modalPop").hide();
+			$("#cmsmodal").addClass('displaynone');
+			$("#cmsmodal").removeClass('displayflex');
+			$('body').removeClass('hasPop');
+			$(document).unbind('touchmove');
+			$(document).unbind('scroll');
+		})
+
+		})
+
+	})
+ 
+// 
+// 
+// ]]></script>
+</p>
