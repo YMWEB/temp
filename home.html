@@ -179,22 +179,21 @@ div.footer img{flex-grow: 0;
 </div>
 </div>
 <article id="detail">
-<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
-<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
-<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img dta-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
-<div class="detail"><img id="goldsilver" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
-<div class="detail"><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
+<div><img class="detail" id="goldsilver" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
 </article>
 <div class="footer"><a style="height: 150px;" href="#catelog"><img src="{{media url="wysiwyg/Home/P1_backTop.gif"}}" alt="" /></a></div>
 </div>
 <p>
 <script type="text/javascript" xml="space">// <![CDATA[
-
 	var LazyLoad = function(elements){
 			this.elements = elements;
 			this.loadEle =function(ele){
 				var srcURL = ele.getAttribute('data-ori');
-				 elem.src = srcURL;
+				 ele.src = srcURL;
 				 ele.style.visibility = "visible"
 			}
 		};
@@ -237,24 +236,24 @@ div.footer img{flex-grow: 0;
 			}
 		}
 
-			var initialized = false;
-			function scrollEventHandler(){
-				if(!initialized){
-					requestAnimationFrame(function update(){
-						checkAvailable()
-						requestAnimationFrame(update)
-				})
-				}
-				initizalized = true;
+		var initialized = false;
+		function scrollEventHandler(){
+			if(!initialized){
+				requestAnimationFrame(function update(){
+					checkAvailable()
+					requestAnimationFrame(update)
+			})
 			}
-			window.onresize = function(){
-				setViewHeight()
-			}
-			window.onscroll = function(){
-				setPageYOffset()
-				scrollEventHandler()
-			}
+			initizalized = true;
 		}
+		window.onresize = function(){
+			setViewHeight()
+		}
+		window.onscroll = function(){
+			setPageYOffset()
+			scrollEventHandler()
+		}
+	}
 
 
 requirejs(['jquery'],function($){
