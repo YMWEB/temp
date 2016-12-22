@@ -133,6 +133,12 @@ define(
                 if (event) {
                     event.preventDefault();
                 }
+                /**
+                * control to show shipping agreement when user finish buying products 
+                **/
+                if(typeof(Storage)!=="undefined" && sessionStorage.getItem('shippingSession')!==null){
+                    sessionStorage.removeItem('shippingSession');
+                }
 
                 if (this.validate() && additionalValidators.validate()) {
                     this.isPlaceOrderActionAllowed(false);
