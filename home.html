@@ -131,6 +131,10 @@ div.footer img{flex-grow: 0;
 #snowzone{
 	display:none;
 }
+.fadein{
+	animation: fade-in 0.5s;
+	-webkit-animation:fade-in 0.5s;
+}
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;">
 <div id="snowzone">
@@ -150,51 +154,46 @@ div.footer img{flex-grow: 0;
 <div id="catelog" class="nav">
 <div class="left">
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
-
 </div>
 <div>
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme2_1.jpg"}}" alt="" /></a></div>
-
 </div>
 </div>
 <div class="nav">
 <div class="left">
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme3_1.jpg"}}" alt="" /></a></div>
-
 </div>
 <div>
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme4_1.jpg"}}" alt="" /></a></div>
-
 </div>
 </div>
 <div class="nav">
 <div class="left">
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme5_1.jpg"}}" alt="" /></a></div>
-
 </div>
 <div>
 <div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
-
 </div>
 </div>
 </div>
 <article id="detail">
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" alt="" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" alt="" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" alt="" /></a></div>
-<div><img class="detail" id="goldsilver" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" alt="" /></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" alt="" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
+<div><img id="goldsilver" class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
 </article>
 <div class="footer"><a style="height: 150px;" href="#catelog"><img src="{{media url="wysiwyg/Home/P1_backTop.gif"}}" alt="" /></a></div>
 </div>
 <p>
 <script type="text/javascript" xml="space">// <![CDATA[
+// 
+requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 	var LazyLoad = function(elements){
 			this.elements = elements;
 			this.loadEle =function(ele){
 				var srcURL = ele.getAttribute('data-ori');
 				 ele.src = srcURL;
-				 ele.style.visibility = "visible"
 			}
 		};
 	LazyLoad.prototype.load = function(){
@@ -254,9 +253,6 @@ div.footer img{flex-grow: 0;
 			scrollEventHandler()
 		}
 	}
-
-
-requirejs(['jquery'],function($){
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
@@ -313,5 +309,6 @@ requirejs(['jquery'],function($){
 })
  
  
+// 
 // ]]></script>
 </p>
