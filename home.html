@@ -283,77 +283,77 @@ div.footer img{flex-grow: 0;
 <script type="text/javascript" xml="space">// <![CDATA[
  
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
-	var LazyLoad = function(elements){
-			this.elements = elements;
-			this.loadEle =function(ele){
-				var srcURL = ele.getAttribute('data-ori');
-				 ele.src = srcURL;
-				 $(ele).addCss('fadein');
-			}
-		};
-	LazyLoad.prototype.load = function(){
-		var that = this;
-		var _viewportHeight=window.innerHeight,_pageYOffset;
-		function setViewHeight(){
-			_viewportHeight = window.innerHeight
-		}
-		function setPageYOffset(){
-			_pageYOffset = window.pageYOffset
-		}
-		function  checkIfInView(ele){
-			var x = ele.getBoundingClientRect().top;
-			if(x){
-				if(x>0&&x<=_viewportHeight){
-					return true
-				}
-				return false;
-			}else{
-				var top = ele.offsetTop;
-				var parent = ele.offsetParent;
-				while(parent){
-					top += parent.offsetParent||0;
-					parent = parent.offsetParent;
-				}
-				if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
-					return true;
-				}
-				return false
-			}
-		}
-		function checkAvailable(){
-			for(var i =0;i<that.elements.length;i++){
-				var el = that.elements[i];
-				if(checkIfInView(el)){
-					that.loadEle(el);
-					that.elements.splice(i,1)
-				}
-			}
-		}
+	// var LazyLoad = function(elements){
+	// 		this.elements = elements;
+	// 		this.loadEle =function(ele){
+	// 			var srcURL = ele.getAttribute('data-ori');
+	// 			 ele.src = srcURL;
+	// 			 $(ele).addCss('fadein');
+	// 		}
+	// 	};
+	// LazyLoad.prototype.load = function(){
+	// 	var that = this;
+	// 	var _viewportHeight=window.innerHeight,_pageYOffset;
+	// 	function setViewHeight(){
+	// 		_viewportHeight = window.innerHeight
+	// 	}
+	// 	function setPageYOffset(){
+	// 		_pageYOffset = window.pageYOffset
+	// 	}
+	// 	function  checkIfInView(ele){
+	// 		var x = ele.getBoundingClientRect().top;
+	// 		if(x){
+	// 			if(x>0&&x<=_viewportHeight){
+	// 				return true
+	// 			}
+	// 			return false;
+	// 		}else{
+	// 			var top = ele.offsetTop;
+	// 			var parent = ele.offsetParent;
+	// 			while(parent){
+	// 				top += parent.offsetParent||0;
+	// 				parent = parent.offsetParent;
+	// 			}
+	// 			if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
+	// 				return true;
+	// 			}
+	// 			return false
+	// 		}
+	// 	}
+	// 	function checkAvailable(){
+	// 		for(var i =0;i<that.elements.length;i++){
+	// 			var el = that.elements[i];
+	// 			if(checkIfInView(el)){
+	// 				that.loadEle(el);
+	// 				that.elements.splice(i,1)
+	// 			}
+	// 		}
+	// 	}
 
-		var initialized = false;
-		function scrollEventHandler(){
-			if(!initialized){
-				requestAnimationFrame(function update(){
-					checkAvailable()
-					requestAnimationFrame(update)
-			})
-			}
-			initizalized = true;
-		}
-		$(document).on('scroll',function(){
-			setPageYOffset()
-			scrollEventHandler()
-		})
+	// 	var initialized = false;
+	// 	function scrollEventHandler(){
+	// 		if(!initialized){
+	// 			requestAnimationFrame(function update(){
+	// 				checkAvailable()
+	// 				requestAnimationFrame(update)
+	// 		})
+	// 		}
+	// 		initizalized = true;
+	// 	}
+	// 	$(document).on('scroll',function(){
+	// 		setPageYOffset()
+	// 		scrollEventHandler()
+	// 	})
 
-		// window.addEventListener('load',function(){
-		// 	setPageYOffset()
-		// 	scrollEventHandler()
-		// })
-		window.addEventListener('resize',function(){
-			setViewHeight()
-		})
+	// 	// window.addEventListener('load',function(){
+	// 	// 	setPageYOffset()
+	// 	// 	scrollEventHandler()
+	// 	// })
+	// 	window.addEventListener('resize',function(){
+	// 		setViewHeight()
+	// 	})
 
-	}
+	// }
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
@@ -397,16 +397,24 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 
 	  $(document).ready(function(){
 	  		var giftShow,host,imgWidth;
-	  		initFun();	  		
-	  		window.addEventListener('scroll',function(){
-	  			var hs = window.innerHeight+20;
-	  			console.log(hs)
-	  			console.log('scrollY'+window.scrollY)
-	  			if(window.scrollY > hs){
-	  				$("#detail").removeClass('displaynone');
-	  				var elements = Array.prototype.slice.call(document.getElementsByClassName('detail'));			
-	  				var lazyload = new LazyLoad(elements);
-					lazyload.load()
+	  		initFun();
+	  		var fisrtShow = false;
+	  		window.addEventListener('scroll',function(){  			
+
+
+		  		if(window.scrollY > hs){
+		  			var viewportHeight = window.innerHeight; 
+		  			var hs = viewportHeight +20;
+		  			var detaillocation = viewportHeight*1.5;
+			  			if(!firstShow){
+			  				window.scrollTo(0,detaillocation);
+			  				firstShow = true;
+			  			}
+
+		  				$("#detail").removeClass('displaynone');		  				
+		  				var elements = Array.prototype.slice.call(document.getElementsByClassName('detail'));			
+		  				var lazyload = new LazyLoad(elements);
+						lazyload.load()
 	  			}
 	  		})
 
