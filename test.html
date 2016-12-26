@@ -107,6 +107,13 @@ div.footer img{flex-grow: 0;
     50% {opacity: 0.5;}  
     100% {opacity: 1;}
 }
+@keyframes run{
+	0% {margin-right:0;}
+	25% {margin-right:50%;}
+	50% {margin-right:100%;}
+	75% {margin-right:50%;}
+	100% {margin-right:0;}
+}
 
 .hasPop{
 	overflow:hidden;
@@ -117,12 +124,12 @@ div.footer img{flex-grow: 0;
 	animation: fade-in 0.5s;
 	-webkit-animation:fade-in 0.5s;
 }
-#detail{
-	display:none;
+.run{
+	animation:run 5s infinite linear;
+	-webkit-animation:run 5s infinite linear;
 }
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;">
-
 <div class="screen screenone banner">
 <div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
 <div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
@@ -156,8 +163,10 @@ div.footer img{flex-grow: 0;
 </div>
 </div>
 <hr />
-<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW_1.png"}}" alt="" /></div>
-<article id="detail">
+<div id="godetail">
+	<img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" />
+</div>
+<article id="detail" class="displaynone">
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
@@ -167,77 +176,10 @@ div.footer img{flex-grow: 0;
 </article></div>
 <p>
 <script type="text/javascript" xml="space">// <![CDATA[
+// 
+// 
+// 
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
-var LazyLoad = function(elements){
-			this.elements = elements;
-			this.loadEle =function(ele){
-				var srcURL = ele.getAttribute('data-ori');
-				 ele.src = srcURL;
-			}
-		};
-	LazyLoad.prototype.load = function(){
-		var that = this;
-		var _viewportHeight=window.innerHeight,_pageYOffset;
-		function setViewHeight(){
-			_viewportHeight = window.innerHeight
-		}
-		function setPageYOffset(){
-			_pageYOffset = window.pageYOffset
-		}
-		function  checkIfInView(ele){
-			var x = ele.getBoundingClientRect().top;
-			if(x){
-				if(x>0&&x<=_viewportHeight){
-					return true
-				}
-				return false;
-			}else{
-				var top = ele.offsetTop;
-				var parent = ele.offsetParent;
-				while(parent){
-					top += parent.offsetParent||0;
-					parent = parent.offsetParent;
-				}
-				if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
-					return true;
-				}
-				return false
-			}
-		}
-		function checkAvailable(){
-			for(var i =0;i<that.elements.length;i++){
-				var el = that.elements[i];
-				if(checkIfInView(el)){
-					that.loadEle(el);
-					that.elements.splice(i,1)
-				}
-			}
-		}
-
-		var initialized = false;
-		function scrollEventHandler(){
-			if(!initialized){
-				requestAnimationFrame(function update(){
-					checkAvailable()
-					requestAnimationFrame(update)
-			})
-			}
-			initizalized = true;
-		}
-		$(document).on('scrollstart',function(){
-			setPageYOffset()
-			scrollEventHandler()
-		})
-
-		// window.addEventListener('load',function(){
-		// 	setPageYOffset()
-		// 	scrollEventHandler()
-		// })
-		window.addEventListener('resize',function(){
-			setViewHeight()
-		})
-
-	}
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
@@ -261,8 +203,6 @@ var LazyLoad = function(elements){
 		$('.welcome').show();
 	}	
 
-
-
 	function initFun(){
 		var screenheight=screen.height;
 		var giftShow = false;
@@ -277,35 +217,46 @@ var LazyLoad = function(elements){
 		goldSiverClick(img,imgWidth,host)
 
 	}
-
 	function showDetailinit(){
-		console.log('documentHeight ' + $(document).height);
-		console.log('windowHeight ' + $(window).height());
-		if($(window).scrollTop()+$(window).height()<$(document).height()){
-			return false;
-		}else{
-			window.addEventListener('scroll',function(){
-				console.log($(window).scrollTop());
-			})
-		}
-		//if users scrolls to the bottom
-
-			//if users scrolls-up to 
-
-				//show detailpanel
+		var _viewportHeight = window.innerHeight;
+		$("#godetail").on('click',function(){
+			if($("#detail").hasClass('displaynone')){
+					$("#detail").removeClass('displaynone');
+					var imgs = $("#detail").find("img.detail");
+					$.each(imgs,function(i,item){
+						$(item).attr("src",$(item).attr('data-ori'))
+					})
+					window.scrollTo(0,_viewportHeight+50)
+				}
+		})
 	}
 
+	// function showDetailinit(){
+	// 	var _documentHeight = $(document).height();
+	// 	var _viewportHeight = $(window).height();
 
+	// 	window.addEventListener('scroll',function(){
+	// 		var heightBar = $(window).scrollTop()+_viewportHeight;
+	// 		if(_documentHeight<heightBar){
+	// 			if($("#detail").hasClass('displaynone')){
+	// 				$("#detail").removeClass('displaynone');
+	// 				$("#godetail a").trigger('click');
+	// 				var imgs = $("#detail").find("img.detail");
+	// 				$.each(imgs,function(i,item){
+	// 					$(item).attr("src",$(item).attr('data-ori'))
+	// 				})
+	// 			}
+	// 		}
+	// 	})	
+	// }
 	  $(document).ready(function(){
 	  		var giftShow,host,imgWidth;
 	  		initFun();
 	  		showDetailinit();
-	  // 		var elements = Array.prototype.slice.call(document.getElementsByClassName('detail'));
-			// var lazyload = new LazyLoad(elements);
-			// lazyload.load()
-
 		})
 
 })
+ 
+// 
 // ]]></script>
 </p>
