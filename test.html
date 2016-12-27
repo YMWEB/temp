@@ -107,22 +107,16 @@ div.footer img{flex-grow: 0;
     50% {opacity: 0.5;}  
     100% {opacity: 1;}
 }
+.fadein{
+	animation: fade-in 0.5s;
+	-webkit-animation:fade-in 0.5s;
+}
 @keyframes run{
 	0% {margin-right:0;}
 	25% {margin-right:50%;}
 	50% {margin-right:100%;}
 	75% {margin-right:50%;}
 	100% {margin-right:0;}
-}
-
-.hasPop{
-	overflow:hidden;
-	height:100%;
-}
-
-.fadein{
-	animation: fade-in 0.5s;
-	-webkit-animation:fade-in 0.5s;
 }
 .run{
 	animation:run 5s infinite linear;
@@ -138,6 +132,7 @@ div.footer img{flex-grow: 0;
 </section>
 
 <section data-role="page" id="secondView">
+	<div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
 	<div id="catelog" class="nav">
 	<div class="left">
 	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
@@ -162,9 +157,10 @@ div.footer img{flex-grow: 0;
 	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
 	</div>
 	</div>
-	<div id="godetail"><a href="#thirdView"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></a></div>
+	<hr>
+	<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
 </section>
-<hr/>
+
 <section data-role="page" id="thirdView">
 	<article id="detail" class="displaynone">
 	<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
@@ -175,50 +171,6 @@ div.footer img{flex-grow: 0;
 	<div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
 	</article></div>
 </section>
-
-<!-- <div class="screen screenone banner">
-<div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
-<div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
-<div style="display: none;"><img id="snow" style="display: none;" src="{{media url="wysiwyg/Home/s1.png"}}" alt="" /></div>
-</div>
-<div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
-<div class="screen screentwo">
-<div id="catelog" class="nav">
-<div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
-</div>
-<div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme2_1.jpg"}}" alt="" /></a></div>
-</div>
-</div>
-<div class="nav">
-<div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme3_1.jpg"}}" alt="" /></a></div>
-</div>
-<div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme4_1.jpg"}}" alt="" /></a></div>
-</div>
-</div>
-<div class="nav">
-<div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme5_1.jpg"}}" alt="" /></a></div>
-</div>
-<div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
-</div>
-</div>
-</div>
-<hr />
-<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
-<article id="detail" class="displaynone">
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
-<div><img id="goldsilver" class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
-<div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
-</article></div>
-<p> -->
 <script type="text/javascript" xml="space">// <![CDATA[
 
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
@@ -226,8 +178,8 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
 			var x= event.clientX;
-			var goldhtml ='http://'+ host + '/pf/wechat/gold.html';
-			var silverhtml ='http://'+ host +'/pf/wechat/silver.html';
+			var goldhtml ="{{config path="web/unsecure/base_url"}}wechat/gold.html";
+			var silverhtml ="{{config path="web/unsecure/base_url"}}wechat/silver.html";
 			if(x<imgWidth/2){
 				window.location.replace(goldhtml)
 			}else{
@@ -268,29 +220,10 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 					$.each(imgs,function(i,item){
 						$(item).attr("src",$(item).attr('data-ori'))
 					})
-					// window.scrollTo(0,_viewportHeight+50)
+					window.scrollTo(0,_viewportHeight+50)
 				}
 		})
 	}
-
-	// function showDetailinit(){
-	// 	var _documentHeight = $(document).height();
-	// 	var _viewportHeight = $(window).height();
-
-	// 	window.addEventListener('scroll',function(){
-	// 		var heightBar = $(window).scrollTop()+_viewportHeight;
-	// 		if(_documentHeight<heightBar){
-	// 			if($("#detail").hasClass('displaynone')){
-	// 				$("#detail").removeClass('displaynone');
-	// 				$("#godetail a").trigger('click');
-	// 				var imgs = $("#detail").find("img.detail");
-	// 				$.each(imgs,function(i,item){
-	// 					$(item).attr("src",$(item).attr('data-ori'))
-	// 				})
-	// 			}
-	// 		}
-	// 	})	
-	// }
 	  $(document).ready(function(){
 	  		var giftShow,host,imgWidth;
 	  		initFun();
@@ -299,7 +232,5 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 
 })
  
-// 
-// 
 // ]]></script>
 </p>
