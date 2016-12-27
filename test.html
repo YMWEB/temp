@@ -130,7 +130,53 @@ div.footer img{flex-grow: 0;
 }
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;">
-<div class="screen screenone banner">
+
+<section data-role="page" id="firstView">
+	<div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
+	<div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
+	<div style="display: none;"><img id="snow" style="display: none;" src="{{media url="wysiwyg/Home/s1.png"}}" alt="" /></div>
+</section>
+
+<section data-role="page" id="secondView">
+	<div id="catelog" class="nav">
+	<div class="left">
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
+	</div>
+	<div>
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme2_1.jpg"}}" alt="" /></a></div>
+	</div>
+	</div>
+	<div class="nav">
+	<div class="left">
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme3_1.jpg"}}" alt="" /></a></div>
+	</div>
+	<div>
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme4_1.jpg"}}" alt="" /></a></div>
+	</div>
+	</div>
+	<div class="nav">
+	<div class="left">
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme5_1.jpg"}}" alt="" /></a></div>
+	</div>
+	<div>
+	<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
+	</div>
+	</div>
+	<div id="godetail"><a href="#thirdView"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></a></div>
+</section>
+<hr/>
+<section data-role="page" id="thirdView">
+	<article id="detail" class="displaynone">
+	<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
+	<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
+	<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
+	<div><img id="goldsilver" class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
+	<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
+	<div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
+	</article></div>
+</section>
+
+<!-- <div class="screen screenone banner">
 <div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
 <div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
 <div style="display: none;"><img id="snow" style="display: none;" src="{{media url="wysiwyg/Home/s1.png"}}" alt="" /></div>
@@ -163,9 +209,7 @@ div.footer img{flex-grow: 0;
 </div>
 </div>
 <hr />
-<div id="godetail">
-	<img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" />
-</div>
+<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
 <article id="detail" class="displaynone">
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
@@ -174,18 +218,16 @@ div.footer img{flex-grow: 0;
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
 <div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
 </article></div>
-<p>
+<p> -->
 <script type="text/javascript" xml="space">// <![CDATA[
-// 
-// 
-// 
+
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
 			var x= event.clientX;
-			var goldhtml ='http://'+ host + '/pf/wechat/design/gold.html';
-			var silverhtml ='http://'+ host +'/pf/wechat/design/silver.html';
+			var goldhtml ='http://'+ host + '/pf/wechat/gold.html';
+			var silverhtml ='http://'+ host +'/pf/wechat/silver.html';
 			if(x<imgWidth/2){
 				window.location.replace(goldhtml)
 			}else{
@@ -226,7 +268,7 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 					$.each(imgs,function(i,item){
 						$(item).attr("src",$(item).attr('data-ori'))
 					})
-					window.scrollTo(0,_viewportHeight+50)
+					// window.scrollTo(0,_viewportHeight+50)
 				}
 		})
 	}
@@ -257,6 +299,7 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 
 })
  
+// 
 // 
 // ]]></script>
 </p>
