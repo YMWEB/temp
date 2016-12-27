@@ -18,7 +18,6 @@ a#back{
 }
 .header .minicart-wrapper{
 	position: absolute;
-	right:10px;
 }
 .minicart-wrapper .action.showcart:before {
     -webkit-font-smoothing: antialiased;
@@ -34,11 +33,7 @@ a#back{
     overflow: hidden;
     speak: none;
     text-align: center;
-    /* background: #eee; */
-    /* opacity: 0.5; */
-    border-radius: 15px;
-    padding: 5px;
-    /* color: yellow; */
+    margin-right: 5px;
 }
 
 .minicart-wrapper .action.showcart:hover:before {
@@ -112,131 +107,29 @@ div.footer img{flex-grow: 0;
     50% {opacity: 0.5;}  
     100% {opacity: 1;}
 }
-@keyframes mysnow1{ 
-	0%{ 
-	bottom:100%; 
-	opacity:0; 
-	} 
-	50%{ 
-	opacity:1; 
-	transform: rotate(540deg);
-	} 
-	100%{ 
-	transform: rotate(1080deg); 
-	opacity: 0; 
-	bottom:0; 
-	} 
-} 
-@-webkit-keyframes mysnow1{ 
-	0%{ 
-	bottom:100%; 
-	opacity:0; 
-	} 
-	50%{ 
-	opacity:1; 
-	-webkit-transform: rotate(540deg);
-	} 
-	100%{ 
-	-webkit-transform: rotate(1080deg); 
-	opacity: 0; 
-	bottom:0; 
-	} 
-} 
-@keyframes mysnow2{
-	0%{ 
-	bottom:100%; 
-	opacity:0; 
-	} 
-	50%{ 
-	opacity:1; 
-	transform: rotate(540deg);
-
-	} 
-	100%{ 
-	transform: rotate(1080deg); 
-	opacity: 0; 
-	bottom:0; 
-	} 
-}
-@-webkit-keyframes mysnow2{
-	0%{ 
-	bottom:100%; 
-	opacity:0; 
-	} 
-	50%{ 
-	opacity:1; 
-	-webkit-transform: rotate(540deg);
-	} 
-	100%{ 
-	-webkit-transform: rotate(1080deg); 
-	opacity: 0; 
-	bottom:0; 
-	} 
+@keyframes run{
+	0% {margin-right:0;}
+	25% {margin-right:50%;}
+	50% {margin-right:100%;}
+	75% {margin-right:50%;}
+	100% {margin-right:0;}
 }
 
-.roll1{ 
-	position:absolute; 
-	opacity:0; 
-	animation: mysnow1 4s infinite linear;
-	-webkit-animation: mysnow1 4s infinite linear; 
-} 
-.roll2{
-	position:absolute; 
-	opacity:0; 
-	animation: mysnow2 5s infinite linear;
-	-webkit-animation:mysnow2 5s infinite linear;
-}
-.roll3{
-	position:absolute; 
-	opacity:0; 
-	animation: mysnow2 6s infinite linear;
-	-webkit-animation:mysnow2 6s infinite linear;
-}
-.roll4{
-	position:absolute; 
-	opacity:0; 
-	animation: mysnow2 7s infinite linear;
-	-webkit-animation:mysnow2 7s infinite linear;
-}
-.div{
-	position:absolute;
-
-}
 .hasPop{
 	overflow:hidden;
 	height:100%;
 }
-#snowzone{
-	display:none;
-}
+
 .fadein{
 	animation: fade-in 0.5s;
 	-webkit-animation:fade-in 0.5s;
 }
-.detail{
-	width:auto;
-	margin:0 auto;
-	min-height:30px;
-}
-#detail{
-	overflow: hidden;
-	background:#eee;
-}
-#detail div{
-	background:#eee;
-}
-.moveup{
-	bottom:0;
+.run{
+	animation:run 5s infinite linear;
+	-webkit-animation:run 5s infinite linear;
 }
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;">
-<div id="snowzone">
-<div class="div roll1" style="left: 5%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
-<div class="div roll4" style="left: 25%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
-<div class="div roll2" style="left: 75%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
-<div class="div roll3" style="left: 90%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
-<!-- <div class="div roll3" style="left: 65%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
-<div class="div roll3" style="left: 20%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div> --></div>
 <div class="screen screenone banner">
 <div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
 <div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
@@ -270,90 +163,22 @@ div.footer img{flex-grow: 0;
 </div>
 </div>
 <hr />
-<div id="viewmore"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
+<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
 <article id="detail" class="displaynone">
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
-<div><img id="goldsilver" class="detail"  alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail"  alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
+<div><img id="goldsilver" class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
 <div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
 </article></div>
 <p>
 <script type="text/javascript" xml="space">// <![CDATA[
- 
+// 
+// 
+// 
+// 
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
-	// var LazyLoad = function(elements){
-	// 		this.elements = elements;
-	// 		this.loadEle =function(ele){
-	// 			var srcURL = ele.getAttribute('data-ori');
-	// 			 ele.src = srcURL;
-	// 			 $(ele).addCss('fadein');
-	// 		}
-	// 	};
-	// LazyLoad.prototype.load = function(){
-	// 	var that = this;
-	// 	var _viewportHeight=window.innerHeight,_pageYOffset;
-	// 	function setViewHeight(){
-	// 		_viewportHeight = window.innerHeight
-	// 	}
-	// 	function setPageYOffset(){
-	// 		_pageYOffset = window.pageYOffset
-	// 	}
-	// 	function  checkIfInView(ele){
-	// 		var x = ele.getBoundingClientRect().top;
-	// 		if(x){
-	// 			if(x>0&&x<=_viewportHeight){
-	// 				return true
-	// 			}
-	// 			return false;
-	// 		}else{
-	// 			var top = ele.offsetTop;
-	// 			var parent = ele.offsetParent;
-	// 			while(parent){
-	// 				top += parent.offsetParent||0;
-	// 				parent = parent.offsetParent;
-	// 			}
-	// 			if(top>_pageYOffset&&top<=_viewportHeight+_pageYOffset){
-	// 				return true;
-	// 			}
-	// 			return false
-	// 		}
-	// 	}
-	// 	function checkAvailable(){
-	// 		for(var i =0;i<that.elements.length;i++){
-	// 			var el = that.elements[i];
-	// 			if(checkIfInView(el)){
-	// 				that.loadEle(el);
-	// 				that.elements.splice(i,1)
-	// 			}
-	// 		}
-	// 	}
-
-	// 	var initialized = false;
-	// 	function scrollEventHandler(){
-	// 		if(!initialized){
-	// 			requestAnimationFrame(function update(){
-	// 				checkAvailable()
-	// 				requestAnimationFrame(update)
-	// 		})
-	// 		}
-	// 		initizalized = true;
-	// 	}
-	// 	$(document).on('scroll',function(){
-	// 		setPageYOffset()
-	// 		scrollEventHandler()
-	// 	})
-
-	// 	// window.addEventListener('load',function(){
-	// 	// 	setPageYOffset()
-	// 	// 	scrollEventHandler()
-	// 	// })
-	// 	window.addEventListener('resize',function(){
-	// 		setViewHeight()
-	// 	})
-
-	// }
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
@@ -377,52 +202,61 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 		$('.welcome').show();
 	}	
 
-
-
 	function initFun(){
 		var screenheight=screen.height;
 		var giftShow = false;
 		var host = location.host; 
 		var img = document.getElementById("goldsilver");
 		var imgWidth=img.width;		
-
 		window.addEventListener('resize',function(){
 			 imgWidth = img.width;
 		})		
 		showWelcome()
-		 $("#snowzone").show()
+		 // $("#snowzone").show()
 		goldSiverClick(img,imgWidth,host)
 
 	}
+	function showDetailinit(){
+		var _viewportHeight = window.innerHeight;
+		$("#godetail").on('click',function(){
+			if($("#detail").hasClass('displaynone')){
+					$("#detail").removeClass('displaynone');
+					var imgs = $("#detail").find("img.detail");
+					$.each(imgs,function(i,item){
+						$(item).attr("src",$(item).attr('data-ori'))
+					})
+					window.scrollTo(0,_viewportHeight+50)
+				}
+		})
+	}
 
+	// function showDetailinit(){
+	// 	var _documentHeight = $(document).height();
+	// 	var _viewportHeight = $(window).height();
+
+	// 	window.addEventListener('scroll',function(){
+	// 		var heightBar = $(window).scrollTop()+_viewportHeight;
+	// 		if(_documentHeight<heightBar){
+	// 			if($("#detail").hasClass('displaynone')){
+	// 				$("#detail").removeClass('displaynone');
+	// 				$("#godetail a").trigger('click');
+	// 				var imgs = $("#detail").find("img.detail");
+	// 				$.each(imgs,function(i,item){
+	// 					$(item).attr("src",$(item).attr('data-ori'))
+	// 				})
+	// 			}
+	// 		}
+	// 	})	
+	// }
 	  $(document).ready(function(){
 	  		var giftShow,host,imgWidth;
 	  		initFun();
-	  		var fisrtShow = false;
-	  		window.addEventListener('scroll',function(){  			
-
-
-		  		if(window.scrollY > hs){
-		  			var viewportHeight = window.innerHeight; 
-		  			var hs = viewportHeight +20;
-		  			var detaillocation = viewportHeight*1.5;
-			  			if(!firstShow){
-			  				window.scrollTo(0,detaillocation);
-			  				firstShow = true;
-			  			}
-
-		  				$("#detail").removeClass('displaynone');		  				
-		  				var elements = Array.prototype.slice.call(document.getElementsByClassName('detail'));			
-		  				var lazyload = new LazyLoad(elements);
-						lazyload.load()
-	  			}
-	  		})
-
+	  		showDetailinit();
 		})
 
 })
  
-
+// 
 // 
 // ]]></script>
 </p>
