@@ -1,0 +1,79 @@
+<style xml="space"><!--
+		div.overview strong{
+			display:none;
+		}
+		#ideaPopup img{
+			opacity:0.4;
+		}
+		#idea-modal-dialog .displaynone{
+			display:none;
+		}
+		#idea-modal-dialog .displayflex{
+			display:flex;
+		}
+		#idea-modal-dialog,.idea-modal-content{
+			flex-wrap: nowrap;
+
+		}
+	
+		#idea-modal-dialog{
+			clear:both;
+			position:absolute;
+			z-index:99;
+			flex-direction: row;
+			display:flex;
+			background: #fff;
+			height:100%;
+			left:0;
+			padding-right:1rem;
+			padding-top:6rem;
+		}
+
+		#idea-modal-dialog .idea-modal-content{
+			background: #FEC52F; display: flex; flex-direction: column; flex-wrap: nowrap;width:20%;height:100%;
+		}
+		#idea-modal-dialog .idea-modal-content img{
+			margin:0 auto;
+			display:block;
+			padding:2rem 0;
+		}
+		.img-responsive{
+			max-width:100%;
+			height:auto;
+		}
+--></style>
+<div id="idea-modal-dialog" style="display: none;">
+<div class="idea-modal-content">
+<div><img class="img-responsive" style="width: 70%;" src="http://pf.wechat.yinshida.com.cn/pf/pub/media/wysiwyg/item_detail/product_detail_pf_single.png" /></div>
+<div style="flex-grow: 2;"><img class="img-responsive" style="width: 35%;" src="http://pf.wechat.yinshida.com.cn/pf/pub/media/wysiwyg/item_detail/product_detail_text.png" /></div>
+<div style="flex-grow: 2;"><span class="button" style="color: #fff; bottom: 0;">收起&lt;&lt;</span></div>
+</div>
+<div class="ideaImg" style="height: 100%;"><img style="height: 100%; max-width: 100%; width: auto; padding-left: 1rem;" src="http://pf.wechat.yinshida.com.cn/pf/pub/media/wysiwyg/item_detail/P4_idea_sweater_gold.jpg" /></div>
+</div>
+<script type="text/javascript" xml="space">// <![CDATA[
+// 
+// 
+requirejs(['jquery'],function($){
+		var _viewpointH = window.innerHeight;			
+		$(function(){
+			$("#ideaPopup img").css('opacity','1')
+			$("#ideaPopup img").on('click',function(){
+				$("#idea-modal-dialog").stop().fadeIn().animate({
+					top:0,
+					bottom:0
+				},300)
+
+		})
+		$("#idea-modal-dialog .button").on('click',function(){
+			$("#idea-modal-dialog").stop().animate({
+				top:_viewpointH
+			},300).fadeOut();
+
+		})
+		})
+	})	
+	
+// 
+// 
+// 
+// ]]></script>
