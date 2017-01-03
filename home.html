@@ -94,7 +94,7 @@ div.footer img{flex-grow: 0;
 
 .welcome{
 	position:relative;
-	width:65%;
+	width:60%;
 	float:right;
 }
 @keyframes fade-in{
@@ -107,6 +107,10 @@ div.footer img{flex-grow: 0;
     50% {opacity: 0.5;}  
     100% {opacity: 1;}
 }
+.fadein{
+	animation: fade-in 0.5s;
+	-webkit-animation:fade-in 0.5s;
+}
 @keyframes run{
 	0% {margin-right:0;}
 	25% {margin-right:50%;}
@@ -114,77 +118,169 @@ div.footer img{flex-grow: 0;
 	75% {margin-right:50%;}
 	100% {margin-right:0;}
 }
-
-.hasPop{
-	overflow:hidden;
-	height:100%;
-}
-
-.fadein{
-	animation: fade-in 0.5s;
-	-webkit-animation:fade-in 0.5s;
-}
 .run{
 	animation:run 5s infinite linear;
 	-webkit-animation:run 5s infinite linear;
 }
+@keyframes mysnow1{ 
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	transform: rotate(540deg);
+	} 
+	100%{ 
+	transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+} 
+@-webkit-keyframes mysnow1{ 
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	-webkit-transform: rotate(540deg);
+	} 
+	100%{ 
+	-webkit-transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+} 
+@keyframes mysnow2{
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	transform: rotate(540deg);
+
+	} 
+	100%{ 
+	transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+}
+@-webkit-keyframes mysnow2{
+	0%{ 
+	bottom:100%; 
+	opacity:0; 
+	} 
+	50%{ 
+	opacity:1; 
+	-webkit-transform: rotate(540deg);
+	} 
+	100%{ 
+	-webkit-transform: rotate(1080deg); 
+	opacity: 0; 
+	bottom:0; 
+	} 
+}
+
+.roll1{ 
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow1 4s infinite linear;
+	-webkit-animation: mysnow1 4s infinite linear; 
+} 
+.roll2{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 5s infinite linear;
+	-webkit-animation:mysnow2 5s infinite linear;
+}
+.roll3{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 6s infinite linear;
+	-webkit-animation:mysnow2 6s infinite linear;
+}
+.roll4{
+	position:absolute; 
+	opacity:0; 
+	animation: mysnow2 7s infinite linear;
+	-webkit-animation:mysnow2 7s infinite linear;
+}
+.div{
+	position:absolute;
+
+}
+.hasPop{
+	overflow:hidden;
+	height:100%;
+}
+#snowzone{
+	display:none;
+}
+#secondView{
+	clear:both;
+	position:relative;
+	top:-10px;
+}
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;">
-<div class="screen screenone banner">
-<div><img class="bannerimg" src="{{media url="wysiwyg/Home/P1_banner.jpg"}}" alt="" /></div>
+<div id="snowzone">
+<div class="div roll1" style="left: 5%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll4" style="left: 25%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll2" style="left: 75%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll3" style="left: 90%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<!-- <div class="div roll3" style="left: 65%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div>
+<div class="div roll3" style="left: 20%;"><img src="{{media url="wysiwyg/Home/s2.png"}}" alt="" /></div> --></div>
+<section id="firstView" data-role="page">
+<div><img class="bannerimg" alt="" data-ori="{{media url="wysiwyg/Home/P1_banner.jpg"}}" /></div>
 <div class="welcome" style="display: none;"><img src="{{media url="wysiwyg/Home/P1_welcome.gif"}}" alt="" /></div>
-<div style="display: none;"><img id="snow" style="display: none;" src="{{media url="wysiwyg/Home/s1.png"}}" alt="" /></div>
-</div>
+</section><section id="secondView" data-role="page">
 <div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
-<div class="screen screentwo">
 <div id="catelog" class="nav">
 <div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_THEME1.jpg"}}" alt="" /></a></div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/p1_theme_1.jpg"}}" alt="" /></a></div>
+</div>
+<a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/p1_theme_classical.jpg"}}" alt="" /></a></div>
+<div class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/p1_theme_friend.jpg"}}" alt="" /></a></div>
 </div>
 <div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme2_1.jpg"}}" alt="" /></a></div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/p1_theme_slogan.jpg"}}" alt="" /></a></div>
 </div>
 </div>
 <div class="nav">
 <div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme3_1.jpg"}}" alt="" /></a></div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/p1_theme_gold.jpg"}}" alt="" /></a></div>
 </div>
-<div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme4_1.jpg"}}" alt="" /></a></div>
-</div>
-</div>
-<div class="nav">
-<div class="left">
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme5_1.jpg"}}" alt="" /></a></div>
-</div>
-<div>
-<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme6_1.jpg"}}" alt="" /></a></div>
-</div>
-</div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/p1_theme_silver.jpg"}}" alt="" /></a></div>
 </div>
 <hr />
 <div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
-<article id="detail" class="displaynone">
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
-<div><img id="goldsilver" class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
-<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
-<div class="footer"><a style="height: 150px;" href="#catelog"><img class="detail" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
-</article></div>
-<p>
+</section><section id="thirdView" data-role="page"><article id="detail" class="displaynone">
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
+<div><img id="goldsilver" class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
+<div class="footer"><a style="height: 150px;" href="#secondView"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
+</article></section>
+<div style="display:none"><img src="{{media url="wysiwyg/Home/gif_banner.gif"}}" alt="" /></div>
 <script type="text/javascript" xml="space">// <![CDATA[
 // 
 // 
 // 
 // 
+
 requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 	function goldSiverClick(img,imgWidth,host){
 		img.addEventListener('click',function(e){
 			var event = e?e:window.event;
 			var x= event.clientX;
-			var goldhtml ='http://'+ host + '/pf/wechat/design/gold.html';
-			var silverhtml ='http://'+ host +'/pf/wechat/design/silver.html';
+			var goldhtml ="{{config path="web/unsecure/base_url"}}wechat/gold.html";
+			var silverhtml ="{{config path="web/unsecure/base_url"}}wechat/silver.html";
 			if(x<imgWidth/2){
 				window.location.replace(goldhtml)
 			}else{
@@ -210,11 +306,15 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 		var imgWidth=img.width;		
 		window.addEventListener('resize',function(){
 			 imgWidth = img.width;
-		})		
-		showWelcome()
-		 // $("#snowzone").show()
-		goldSiverClick(img,imgWidth,host)
-
+		})
+		var bannerimg = $('.bannerimg').attr('data-ori');
+		$('.bannerimg').attr('src',bannerimg).load(function(){
+			showWelcome()
+		})
+		setTimeout(function(){
+			$("#snowzone").show()
+		},1000)
+	
 	}
 	function showDetailinit(){
 		var _viewportHeight = window.innerHeight;
@@ -225,38 +325,25 @@ requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
 					$.each(imgs,function(i,item){
 						$(item).attr("src",$(item).attr('data-ori'))
 					})
-					window.scrollTo(0,_viewportHeight+50)
+					window.scrollTo(0,_viewportHeight+100)
+					var host = location.host; 
+					var img = document.getElementById("goldsilver");
+					var imgWidth=img.width;
+					goldSiverClick(img,imgWidth,host)
 				}
 		})
 	}
-
-	// function showDetailinit(){
-	// 	var _documentHeight = $(document).height();
-	// 	var _viewportHeight = $(window).height();
-
-	// 	window.addEventListener('scroll',function(){
-	// 		var heightBar = $(window).scrollTop()+_viewportHeight;
-	// 		if(_documentHeight<heightBar){
-	// 			if($("#detail").hasClass('displaynone')){
-	// 				$("#detail").removeClass('displaynone');
-	// 				$("#godetail a").trigger('click');
-	// 				var imgs = $("#detail").find("img.detail");
-	// 				$.each(imgs,function(i,item){
-	// 					$(item).attr("src",$(item).attr('data-ori'))
-	// 				})
-	// 			}
-	// 		}
-	// 	})	
-	// }
-	  $(document).ready(function(){
+	 $(document).ready(function(){
 	  		var giftShow,host,imgWidth;
-	  		initFun();
+	  		initFun(); 		
 	  		showDetailinit();
+	  		
 		})
-
 })
- 
+
+// 
+// 
 // 
 // 
 // ]]></script>
-</p>
+</div>
