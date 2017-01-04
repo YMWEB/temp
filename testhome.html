@@ -118,7 +118,11 @@ div.footer img{flex-grow: 0;
 }
 --></style>
 <div class="home" style="background: transparent; width: 100%; height: 100%;"><section id="firstView">
-<div><img class="banner" alt="" /></div>
+<picture class="banner">
+ <source srcset="{{media url="wysiwyg/Home/P1_banner_black_640.jpg"}}" media="(max-width:400px)">
+ <source srcset="{{media url="wysiwyg/Home/P1_banner_black_750.jpg"}}" media="(max-width:700px)">
+ <img src="{{media url="wysiwyg/Home/P1_banner_black_1080.jpg"}}" alt="welcome">
+</picture>
 <div><img class="gifbanner" alt="" /></div>
 </section><section id="secondView">
 <div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
@@ -151,120 +155,8 @@ div.footer img{flex-grow: 0;
 <div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
 <div class="footer"><a style="height: 150px;" href="#secondView"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
 </article></section></div>
-<script type="text/javascript" xml="space">// <![CDATA[
-// 
-// 
-// 
-// 
+<script type="text/javascript" xml="space">
 
-requirejs(['jquery','jquery/jquery.mobile.custom'],function($){
+requirejs(['js/homepage'],function(){})
 
-	var imgWidth,bannerHeight,img,host = location.host,
-	size = 'http://'+host + '/pf-stg/pub/media/wysiwyg/Home/'+'P1_banner_black',
-	gifbanner = 'http://'+host + '/pf-stg/pub/media/wysiwyg/Home/'+'gif_banner.gif';
-
-	function goldSiverClick(img,imgWidth,host){
-		img.addEventListener('click',function(e){
-			var event = e?e:window.event;
-			var x= event.clientX;
-			var goldhtml ="{{config path="web/unsecure/base_url"}}wechat/gold.html";
-			var silverhtml ="{{config path="web/unsecure/base_url"}}wechat/silver.html";
-			if(x<imgWidth/2){
-				window.location.replace(goldhtml)
-			}else{
-				window.location.replace(silverhtml)
-			}
-		})
-	}
-
-	function showWelcome(){
-		var welcomePos = $('.bannerimg').height();
-		var offsetPos ='-'+ welcomePos/100 *8 +'px';
-		$('.welcome').css({
-			top:offsetPos
-		})
-		$('.welcome').show();
-	}	
-	function calcHeight(obj){
-		return $(obj).height();
-	}
-
-	function mediaQuery(obj){
-		if(screen.width < 400){
-			return obj + '_640.jpg'
-		}else if(screen.width<750){
-			return obj + '_750.jpg'
-		}else{
-			return obj +'_1080.jpg'
-		}
-	}
-
-	function showGif(bannerHeight){
-		var gifbannerPtg = bannerHeight*0.33
-		$('.gifbanner').css('top',gifbannerPtg)	
-		$('.gifbanner').show()
-	}
-    /** Banner is too big **/
-	function showBanner(){
-
-	 	var imgLink = mediaQuery(size);
-		var showgif = setInterval(function(){
-			var logimg_H = $('.navimg:last').height();
-			console.log('0')
-			if(logimg_H>0){
-				clearInterval(showgif);	
-				$('.banner').attr('src',imgLink).on('load',function(){
-					bannerHeight = calcHeight($('.banner'))
-					$.ajax({
-						url:gifbanner
-					}).done(function(){
-						$('.gifbanner').attr('src',gifbanner)
-						showGif(bannerHeight)
-					})
-					
-				})
-			}
-		},200)		
-	}
-
-	function showDetailinit(){
-		var _viewportHeight = window.innerHeight;
-		$("#godetail").on('click',function(){
-			if($("#detail").hasClass('displaynone')){
-					$("#detail").removeClass('displaynone');
-					var imgs = $("#detail").find("img.detail");
-					$.each(imgs,function(i,item){
-						$(item).attr("src",$(item).attr('data-ori'))
-					})
-					window.scrollTo(0,_viewportHeight+100)				
-					var img = document.getElementById("goldsilver");
-					var imgWidth=img.width;
-					goldSiverClick(img,imgWidth,host)
-				}
-		})
-	}
-
-	function detectOritation(){
-		window.addEventListener('resize',function(){
-			img = document.getElementById("goldsilver");
-			imgWidth = img.width;
-			goldSiverClick(img,imgWidth,host)
-			bannerHeight = calcHeight($('.banner'));
-			showGif(bannerHeight)
-		})
-	}
-
-	 $(document).ready(function(){
-	 	
-	 	detectOritation();
-	 	showBanner();
-	  	showDetailinit();	  		
-	})
-})
-
-
-// 
-// 
-// 
-// 
-// ]]></script>
+</script>
