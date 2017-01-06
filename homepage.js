@@ -53,15 +53,18 @@ requirejs(['jquery'],function($){
 		$('.gifbanner').show()
 	}
     /** Banner is too big **/
-	function showBanner(sessionAva){
-		bannerHeight = calcHeight($('.banner').find('img'))
-		var timestamp = new Date().valueOf()
-		if(sessionAva){
-			gifbanner = gifbanner+'?'+timestamp;
-		}
-		$('.gifbanner').attr('src',gifbanner)
-		showGif(bannerHeight)
+	function showBanner(){
+			bannerHeight = calcHeight($('.banner').find('img'))
+			while(!bannerHeight>0){
+				bannerHeight = calcHeight($('.banner').find('img'))
+			}
+			var timestamp = new Date().valueOf()
 
+			if(sessionAva==='true'){
+				gifbanner = gifbanner+'?'+timestamp;
+			}
+			$('.gifbanner').attr('src',gifbanner)
+			showGif(bannerHeight)		
 	}
 
 	function showDetailinit(){
@@ -91,13 +94,15 @@ requirejs(['jquery'],function($){
 		})
 	}
 
-	 $(document).ready(function(){		
-	 	if(typeof(Storage)!=="undefined"){
-	 		sessionAva = true; 
+	 $(document).ready(function(){
+
+	 	if(typeof(Storage)=="undefined"){
+	 		sessionAva = 'true'; 
 	 	}else if(sessionStorage.getItem('sessionAva')!==null){
-	 		sessionAva = false;
+	 		sessionAva = 'false';
 	 	}else{
 	 		sessionStorage.setItem('sessionAva','true')
+	 		sessionAva = 'true'
 	 	}	
         showBanner();
 	 	detectOritation();
