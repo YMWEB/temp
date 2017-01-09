@@ -1,30 +1,155 @@
-<html>
-<head>test css hide/show</head>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<style>
-
-.layer{
-	transition:height 0.5s linear ;
-	position:fixed;
-	top:0;
-	background: lightgrey;
-	width:100%;
+<style xml="space"><!--
+.page-wrapper .page-header{
+	height:0;
+	padding:0;
+}
+.page-header h5{
+	margin:0;
+display:none;
+}
+a#back{
+	display:none;
+}
+.header.content{
+	width:0!important;
+	position:relative;
+	width:auto!important;
 	height:0;
 }
+.header .minicart-wrapper{
+	position: absolute;
+}
+.minicart-wrapper .action.showcart:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 22px;
+    line-height: 28px;
+    color: #fff;
+    content: '\e611';
+    font-family: 'luma-icons';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center;
+    margin-right: 5px;
+}
 
-</style>
-<body>
- <div id="main" style="background: red;width:100%;height:80%"><button>click</button></div>
- <div class="layer">
- 	<button id="clickid">clickme</button>
- </div>
- <script>
-  $("#main button").on('click',function(){
-  	$('.layer').css('height','50%')
-  })
-  $('#clickid').on('click',function(){
-  	$('.layer').css('height','0')
-  })
- </script>
-</body>
-</html>
+.minicart-wrapper .action.showcart:hover:before {
+    color: #fff;
+}
+
+.minicart-wrapper .action.showcart:active:before {
+    color: #fff;
+}
+
+.minicart-wrapper .action.showcart.active {
+    display: inline-block;
+    text-decoration: none
+}
+
+.minicart-wrapper .action.showcart.active:before {
+    -webkit-font-smoothing: antialiased;
+    font-size: 22px;
+    line-height: 28px;
+    color: #fff;
+    content: '\e611';
+    font-family: 'luma-icons';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    speak: none;
+    text-align: center
+}
+
+.minicart-wrapper .action.showcart.active:hover:before {
+    color: #fff;
+}
+
+.minicart-wrapper .action.showcart.active:active:before {
+    color: #fff;
+}
+.displaynone{
+	display:none;
+}
+.displayflex{
+	display:flex;
+}
+#maincontent{margin:0 auto;padding:0}
+div.nav{display:flex;justify-content:center;margin:0;padding:0;width:100%; margin-bottom:1rem;}
+div.nav div{ border:0; margin-bottom:0;}
+article img{width:100%;} 
+div img{width:100%}
+div.nav .left{
+margin-right:10px;
+}
+div.footer a{display:flex;justify-content:center;width:100%;}
+div.footer img{flex-grow: 0;
+    height: auto;
+    width: auto;
+    max-width: 40%;}
+
+.welcome{
+	position:relative;
+	width:60%;
+	float:right;
+}
+
+.div{
+	position:absolute;
+
+}
+.hasPop{
+	overflow:hidden;
+	height:100%;
+}
+
+#secondView{
+	clear:both;
+	position:relative;
+}
+
+.gifbanner{
+	position: absolute;
+	display:none;
+}
+--></style>
+<div class="home" style="background: transparent; width: 100%; height: 100%;"><section id="firstView"><picture class="banner"> <source srcset="{{media url="wysiwyg/Home/P1_banner_black_640.jpg"}}" media="(max-width:400px)" /> <source srcset="{{media url="wysiwyg/Home/P1_banner_black_750.jpg"}}" media="(max-width:700px)" /> <img src="{{media url="wysiwyg/Home/P1_banner_black_1080.jpg"}}" alt="welcome" /> </picture>
+<div><img class="gifbanner" alt="" /></div>
+</section><section id="secondView">
+<div style="width: 60%;"><img src="{{media url="wysiwyg/Home/P1_theme_top.gif"}}" alt="" /></div>
+<div id="catelog" class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img src="{{media url="wysiwyg/Home/P1_theme_1.jpg"}}" alt="" /></a></div>
+</div>
+<a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img src="{{media url="wysiwyg/Home/P1_theme_classical.jpg"}}" alt="" /></a></div>
+<div class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img src="{{media url="wysiwyg/Home/P1_theme_friend.jpg"}}" alt="" /></a></div>
+</div>
+<div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img src="{{media url="wysiwyg/Home/P1_theme_slogan.jpg"}}" alt="" /></a></div>
+</div>
+</div>
+<div class="nav">
+<div class="left">
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/gold.html"><img src="{{media url="wysiwyg/Home/P1_theme_gold.jpg"}}" alt="" /></a></div>
+</div>
+<div class="navimg"><a class="alink" href="{{config path="web/unsecure/base_url"}}wechat/design/silver.html"><img src="{{media url="wysiwyg/Home/P1_theme_silver.jpg"}}" alt="" /></a></div>
+</div>
+<hr />
+<div id="godetail"><img style="margin: 0 auto; display: block; width: 60%;" src="{{media url="wysiwyg/Home/P1_VIEW.png"}}" alt="" /></div>
+</section><section id="thirdView"><article id="detail" class="displaynone">
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/christmas.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_Christmas.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/classical.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_classical_1.jpg"}}" /></a></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/slogan.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_slogan_1.jpg"}}" /></a></div>
+<div><img id="goldsilver" class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_gold_silver_1.jpg"}}" /></div>
+<div><a href="{{config path="web/unsecure/base_url"}}wechat/design/juliusandfriends.html"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_option_friends.jpg"}}" /></a></div>
+<div class="footer"><a style="height: 150px;" href="#secondView"><img class="detail fadein" alt="" data-ori="{{media url="wysiwyg/Home/P1_backTop.gif"}}" /></a></div>
+</article></section></div>
+<script type="text/javascript" xml="space">// <![CDATA[
+requirejs(['js/homepage'],function(){})
+// ]]></script>
