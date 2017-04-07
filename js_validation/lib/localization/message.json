@@ -1,0 +1,66 @@
+{
+  "msg001":{
+    "keywords":"data-rule-required",
+    "msg":"这是必填字段"
+  },
+  "msg002":{
+    "keywords":"zip",
+    "msg":"请输入有效的邮政编码"
+  },
+  "msg003":{
+    "keywords":"email",
+    "msg":"请输入有效的电子邮件地址"
+  },
+  "msg004":{
+    "keywords":"url",
+    "msg":"请输入有效的网址"
+  },
+  "msg005":{
+    "keywords":"dateISO",
+    "msg":"请输入有效的日期 (YYYY-MM-DD)"
+  },
+  "msg006":{
+    "keywords":"digits",
+    "msg":"只能输入数字"
+  },
+  "msg007":{
+    "keywords":"number",
+    "msg":"请输入有效的数字"
+  },
+  "msg008":{
+    "keywords":"equalTo",
+    "msg":"你的输入不相同"
+  },
+  "msg009":{
+    "keywords":"extension",
+    "msg":"请输入有效的后缀"
+  },
+  "msg010":{
+    "keywords":"maxlength",
+    "msg":"最多可以输入 {0} 个字符"
+  },
+  "msg011":{
+    "keywords":"minlength",
+    "msg":"最少要输入 {0} 个字符"
+  },
+  "msg012":{
+    "keywords":"rangelength",
+    "msg":"请输入长度在 {0} 到 {1} 之间的字符串"
+  },
+  "msg013":{
+    "keywords":"rangelength",
+    "msg":"请输入长度在 {0} 到 {1} 之间的字符串"
+  },
+  "msg014":{
+    "keywords":"range",
+    "msg":"请输入范围在 {0} 到 {1} 之间的数值"
+  },
+  "msg015":{
+    "keywords":"max",
+    "msg":"请输入不大于 {0} 的数值"
+  },
+  "msg016":{
+    "keywords":"min",
+    "msg":"请输入不小于 {0} 的数值"
+  }
+}
