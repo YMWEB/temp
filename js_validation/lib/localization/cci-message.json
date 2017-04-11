@@ -1,66 +1,59 @@
-var data = {
-  "msg001":{
-    "keywords":"data-rule-required",
+{
+  "required":{
     "msg":"这是必填字段"
   },
-  "msg002":{
-    "keywords":"zip",
+  "zip":{
     "msg":"请输入有效的邮政编码"
   },
-  "msg003":{
-    "keywords":"email",
+  "email":{
     "msg":"请输入有效的电子邮件地址"
   },
-  "msg004":{
-    "keywords":"url",
+  "url":{
     "msg":"请输入有效的网址"
   },
-  "msg005":{
-    "keywords":"dateISO",
+  "dateISO":{
     "msg":"请输入有效的日期 (YYYY-MM-DD)"
   },
-  "msg006":{
-    "keywords":"digits",
+  "digits":{
     "msg":"只能输入数字"
   },
-  "msg007":{
-    "keywords":"number",
+  "number":{
     "msg":"请输入有效的数字"
   },
-  "msg008":{
-    "keywords":"equalTo",
+  "equalTo":{
     "msg":"你的输入不相同"
   },
-  "msg009":{
-    "keywords":"extension",
+  "extension":{
     "msg":"请输入有效的后缀"
   },
-  "msg010":{
-    "keywords":"maxlength",
+  "maxlength":{
     "msg":"最多可以输入 {0} 个字符"
   },
-  "msg011":{
-    "keywords":"minlength",
+  "minlength":{
     "msg":"最少要输入 {0} 个字符"
   },
-  "msg012":{
-    "keywords":"rangelength",
+  "rangelength":{
     "msg":"请输入长度在 {0} 到 {1} 之间的字符串"
   },
-  "msg013":{
-    "keywords":"rangelength",
-    "msg":"请输入长度在 {0} 到 {1} 之间的字符串"
-  },
-  "msg014":{
-    "keywords":"range",
+  "range":{
     "msg":"请输入范围在 {0} 到 {1} 之间的数值"
   },
-  "msg015":{
-    "keywords":"max",
+  "max":{
     "msg":"请输入不大于 {0} 的数值"
   },
-  "msg016":{
-    "keywords":"min",
+  "min":{
     "msg":"请输入不小于 {0} 的数值"
+  },
+  "cci-email": {
+    "msg":"请输入正确的邮件格式"
+  },
+  "zip-CHN":{
+    "msg": "请输入6位的邮政编码"
+  },
+  "cci-password": {
+    "msg": "密码至少包含一个字母和一个数字"
+  },
+  "cellphone-CHN": {
+    "msg": "请输入11位手机号码"
   }
 }

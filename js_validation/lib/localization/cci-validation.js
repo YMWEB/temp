@@ -1,40 +1,108 @@
-//read json
-(function ($) {
+/**
+ * load jquery validation plugin first
+ */
+(function($) {
     "use strict";
+    /**
+     * add the validation rules
+     */
+    var cciRules = {
+        "cci-email": [
+            function(value,element) {
+                return this.optional(element) || /^([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9,!\#\$%&'\*\+\/=\?\^_`\{\|\}~-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*@([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z0-9-]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*\.(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]){2,})$/i.test(value);
+            },
+            'please write the correct emails'
+        ],
+        "letters-only": [
+            function(value, element) {
+                return this.optional(element) || /^[a-z]+$/i.test(value);
+            },
+            'Letters only please'
+        ],
+        "no-whitespace": [
+            function(value, element) {
+                return this.optional(element) || /^\S+$/i.test(value);
+            },
+            'No white space please'
+        ],
+        "zip-CHN": [
+            function(value, element) {
+                return this.optional(element) || /^[1-9]\d{5}(?!\d)/.test(value);
+            },
+            'Your zip code should be six digital'
+        ],
+        "cellphone-CHN": [
+            function(value, element) {
+                var check = false;
+                if ($.trim(value) !== "" && value.length === "11") {
+                    check = true;
+                }
+                return this.optional(element) || check;
+            },
+            'Please enter the valid cellphone number'
+        ],
+        "cci-password": [
+            function(value, element) {
+                return this.optional(element) || "^(?=.*?[0-9])(?=.*?[A-Za-z])[A-Za-z0-9~!@#$%^&-_+]*$".test(value);
+            },
+            'Password should contain at least one letter and one number'
+        ]
 
-    var getLocalJson = function (path) {
-        $.getJSON(path, function (data) {
-            workData(data);
+    };
+
+    $.each(cciRules, function(i, rule) {
+        rule.unshift(i);
+        $.validator.addMethod.apply($.validator, rule);
+    });
+
+    /**
+     * add/override attribute class rules
+     */
+    $.validator.addClassRules({
+        "cci-email": {
+            "cci-email": true
+        },
+        "cci-required": {
+          "required": true
+        },
+        "zip-CHN": {
+          "zip-CHN": true
+        },
+        "cci-password": {
+          "cci-password": true
+        },
+        "cellphone-CHN": {
+          "cellphone-CHN": true
+        }
+    });
+
+    /**
+      * change error placement
+    */
+
+$.extend($.validator.defaults, {
+    errorElement:"div",
+    errorPlacement: function(place,element) {
+      place.insertBefore(element);
+    }
+})
+    /**
+     *Get localize message
+     */
+    var addLocalizeData = function(data) {
+        $.each(data, function(i, item) {
+            var rulejson = {};
+            rulejson[i] = item.msg;
+            $.validator.messages = $.extend($.validator.messages,
+                rulejson);
         });
     };
 
-    var addData = function (data) {
-        $.each(data, function (i, item) {
-            $.validator.messages = $.extend($.validator.messages, {
-              item.keywords: item.msg
-            });
+    var getLocalJson = function(path) {
+        $.getJSON(path, function(data) {
+            addLocalizeData(data);
         });
     };
 
+    getLocalJson("/js_validation/lib/localization/cci-message.json");
 })(jQuery)
-//get message
-
-// $.extend( $.validator.messages, {
-//   required: "这是必填字段",
-//   remote: "请修正此字段",
-//   email: "请输入有效的电子邮件地址",
-//   url: "请输入有效的网址",
-//   date: "请输入有效的日期",
-//   dateISO: "请输入有效的日期 (YYYY-MM-DD)",
-//   number: "请输入有效的数字",
-//   digits: "只能输入数字",
-//   creditcard: "请输入有效的信用卡号码",
-//   equalTo: "你的输入不相同",
-//   extension: "请输入有效的后缀",
-//   maxlength: $.validator.format( "最多可以输入 {0} 个字符" ),
-//   minlength: $.validator.format( "最少要输入 {0} 个字符" ),
-//   rangelength: $.validator.format( "请输入长度在 {0} 到 {1} 之间的字符串" ),
-//   range: $.validator.format( "请输入范围在 {0} 到 {1} 之间的数值" ),
-//   max: $.validator.format( "请输入不大于 {0} 的数值" ),
-//   min: $.validator.format( "请输入不小于 {0} 的数值" )
-// } );
