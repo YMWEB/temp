@@ -1,0 +1,18 @@
+<p>
+  district works!
+</p>
+
+<div id="district">
+  <select id="province" [compareWith]="compareSel" class="select-province" [(ngModel)]=selProvince (change)="updateSel(selProvince.key,'p')">
+    <option *ngFor = "let province of provinces | keys" [ngValue]="province">{{province.value}}</option>
+  </select>
+
+  <select id="city" [compareWith]="compareSel" class="select-city" [(ngModel)] = selCity (change)="updateSel(selCity.key,'c')">
+      <option *ngFor = "let city of cities | keys" [ngValue]="city">{{city.value}}</option>
+  </select>
+
+  <select id="district" [compareWith]="compareSel" class="select-district" [(ngModel)] = selDistrict>
+      <option *ngFor = "let district of districts | keys" [ngValue]="district">{{district.value}}</option>
+  </select>
+
+</div>
